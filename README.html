@@ -1,0 +1,114 @@
+
+<!DOCTYPE html><html><head><title>R: cost_and_taxes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css">
+<script type="text/javascript">
+const macros = { "\\R": "\\textsf{R}", "\\code": "\\texttt"};
+function processMathHTML() {
+    var l = document.getElementsByClassName('reqn');
+    for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); }
+    return;
+}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
+    onload="processMathHTML();"></script>
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container"><main>
+
+<table style="width: 100%;"><tr><td>cost_and_taxes</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>cost_and_taxes</h2>
+
+<h3>Description</h3>
+
+<p>Allow to calculate basic variables related to cost and taxes from a bunch of products (elements). So put every variable you know in the following order:
+</p>
+
+
+<h3>Usage</h3>
+
+<pre><code class='language-R'>cost_and_taxes(
+  qte = NA,
+  pu = NA,
+  prix_ht = NA,
+  tva = NA,
+  prix_ttc = NA,
+  prix_tva = NA,
+  pu_ttc = NA,
+  adjust = NA,
+  prix_d_ht = NA,
+  prix_d_ttc = NA,
+  pu_d = NA,
+  pu_d_ttc = NA
+)
+</code></pre>
+
+
+<h3>Arguments</h3>
+
+<table>
+<tr><td><code id="qte">qte</code></td>
+<td>
+<p>is the quantity of elements</p>
+</td></tr>
+<tr><td><code id="pu">pu</code></td>
+<td>
+<p>is the price of a single elements without taxes</p>
+</td></tr>
+<tr><td><code id="prix_ht">prix_ht</code></td>
+<td>
+<p>is the duty-free price of the whole set of elements</p>
+</td></tr>
+<tr><td><code id="tva">tva</code></td>
+<td>
+<p>is the percentage of all taxes</p>
+</td></tr>
+<tr><td><code id="prix_ttc">prix_ttc</code></td>
+<td>
+<p>is the price of all the elements with taxes</p>
+</td></tr>
+<tr><td><code id="prix_tva">prix_tva</code></td>
+<td>
+<p>is the cost of all the taxes</p>
+</td></tr>
+<tr><td><code id="pu_ttc">pu_ttc</code></td>
+<td>
+<p>is the price of a single element taxes included</p>
+</td></tr>
+<tr><td><code id="adjust">adjust</code></td>
+<td>
+<p>is the discount percentage</p>
+</td></tr>
+<tr><td><code id="prix_d_ht">prix_d_ht</code></td>
+<td>
+<p>is the free-duty price of an element after discount</p>
+</td></tr>
+<tr><td><code id="prix_d_ttc">prix_d_ttc</code></td>
+<td>
+<p>is the price with taxes of an element after discount</p>
+</td></tr>
+<tr><td><code id="pu_d">pu_d</code></td>
+<td>
+<p>is the price of a single element after discount and without taxes</p>
+</td></tr>
+<tr><td><code id="pu_d_ttc">pu_d_ttc</code></td>
+<td>
+<p>is the free-duty price of a single element after discount</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre><code class='language-R'>
+print(cost_and_taxes(pu=45, prix_ttc=2111, qte=23))
+
+# [1]   23.000000   45.000000   45.000000    1.039614 2111.000000 1076.000000
+#[7]   45.000000          NA          NA          NA          NA          NA
+
+</code></pre>
+
+</main>
+
+</div>
+</body></html>
